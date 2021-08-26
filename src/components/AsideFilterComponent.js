@@ -72,9 +72,9 @@ export default function AsideFiltersComponent(props) {
         props.refreshGeomarkers(
             GeomarkersService.formingArtefactsArrayByCategory(
                 props.artefacts,
-                //only == , not ===  !!! (x.id_category == document. ...)
-                props.allCategories
-                    .find(x => (x.id_category == document.getElementById("selectCategoryID").options[document.getElementById("selectCategoryID").selectedIndex].value)))
+                props.allCategories,
+                document.getElementById("selectCategoryID").options[document.getElementById("selectCategoryID").selectedIndex].value
+            )
         ),
         ReactDOM.render(
             <React.StrictMode>

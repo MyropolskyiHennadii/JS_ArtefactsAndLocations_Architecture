@@ -15,11 +15,11 @@ import SynonymsAndLanguages from './SynonymsAndLanguages';
 
 class GeomarkersService {
 
-    setStyleForFeature() {
+    setStyleForFeature(featureColor) {
         return new Style({
             image: new CircleStyle({
                 radius: 5,
-                fill: new Fill({ color: '#123cb3' }),
+                fill: new Fill({ color: featureColor }),
                 stroke: new Stroke({
                     color: 'white',
                     width: 2,
@@ -43,6 +43,10 @@ class GeomarkersService {
         console.log("Size of full artefacts:" + artefacts.length);
         for (let index = 0; index < artefacts.length; index++) {
 
+            let pathToArtefactsImage = null;
+            if((artefacts[index].artefactsImage !== null) && (artefacts[index].artefactsImage !== undefined)){
+                pathToArtefactsImage = artefacts[index].artefactsImage.path_to_image;
+            }
             const geoMarker = new Feature(
                 {
                     type: 'geoMarker',
@@ -51,6 +55,7 @@ class GeomarkersService {
                     id_artefact: artefacts[index].id_artefacts,//id of artefact
                     longitude: artefacts[index].artefactsLocation.longitude,
                     latitude: artefacts[index].artefactsLocation.latitude,
+                    pathToImage: pathToArtefactsImage,
                     name: "",
                     wiki: "",
                     author: "",
@@ -60,8 +65,7 @@ class GeomarkersService {
             );
 
             geoMarker.setStyle(
-                //playing with colour und frequence of plant
-                this.setStyleForFeature()
+                this.setStyleForFeature('#123cb3')
             );
 
             geomarkers.push(geoMarker);
@@ -71,20 +75,20 @@ class GeomarkersService {
     }
 
     //filter artefacts by category
-    formingArtefactsArrayByCategory(artefacts, category) {
+    formingArtefactsArrayByCategory(artefacts, allCategories, id) {
+        const category = allCategories.find(x => (Number(x.id_category) === Number(id)));
         if (category === undefined) {//all artefacts
-            //console.log("Size of full artefacts:" + artefacts.length);
             return artefacts;
         }
         const filteredArtefacts = [];//with filter
         for (let i = 0; i < artefacts.length; i++) {
             for (let j = 0; j < artefacts[i].categories.length; j++) {
-                if (category.id_category === artefacts[i].categories[j].id_category_artefact) {
+                if (Number(category.id_category) === Number(artefacts[i].categories[j].id_category_artefact)) {
                     filteredArtefacts.push(artefacts[i]);
                 }
             }
         }
-        console.log("Size of filtered artefacts:" + filteredArtefacts.length);
+        console.log("Size of filtered artefacts after category selection:" + filteredArtefacts.length);
         return filteredArtefacts;
     }
 
@@ -143,6 +147,26 @@ class GeomarkersService {
         feature.set("categories", strCategories);
 
         return feature;
+    }
+
+    //set feature for selected point
+    setFeatureForSelectedPoint(coordinates) {
+        let selectedPoint = null;
+        if (coordinates !== null) {
+            selectedPoint = new Feature(
+                {
+                    type: 'geoMarker',
+                    geometry: new Point(fromLonLat([coordinates[0], coordinates[1]])),
+                    id: "_selectedPoint",
+                    longitude: coordinates[0],
+                    latitude: coordinates[1]
+                }
+            );
+            selectedPoint.setStyle(
+                this.setStyleForFeature('#ff4500')
+            );
+        }
+        return selectedPoint;
     }
 }
 

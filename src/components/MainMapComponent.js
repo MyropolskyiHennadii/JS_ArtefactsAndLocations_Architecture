@@ -8,9 +8,12 @@ import OSM from 'ol/source/OSM';
 import 'ol/ol.css';
 import VectorSource from 'ol/source/Vector';
 import { Vector as VectorLayer } from 'ol/layer';
+import * as olProj from 'ol/proj';
 
 import InfoArtefact from './InfoArtefactComponent';
 import AsideFilterComponent from './AsideFilterComponent';
+import AsideFindItComponent from './AsideFindItComponent';
+import GeomarkersService from '../service/GeomarkersService';
 
 /* just the map */
 class MainMap extends React.Component {
@@ -22,6 +25,7 @@ class MainMap extends React.Component {
             viewMap: this.props.viewMap,
             lastClickPosition: null//position with last click
         }
+        ReactDOM.render(<AsideFindItComponent FindPlaceByCoordinate = {this.FindPlaceByCoordinate}/>, document.getElementById('findIt'));
     }
 
     componentDidMount() {
@@ -43,7 +47,7 @@ class MainMap extends React.Component {
             view: this.props.viewMap
         });
 
-        //by click on point - show details of plant
+        //by click on point - show details of artefact
         const currentThis = this;
         map.on('click', function (evt) {
             const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
@@ -53,18 +57,15 @@ class MainMap extends React.Component {
                 const artefact = currentThis.props.artefacts.find(x => (x.id_artefacts === feature.get("id_artefact")));
                 if (artefact !== undefined) {
                     ReactDOM.render(
-                        <React.StrictMode>
                             <InfoArtefact feature={feature}
-                                artefact = {artefact}
-                                allCategories = {currentThis.props.allCategories}
-                                linksToPhotos = {currentThis.props.linksToPhotos}
-                                category={null} />
-                        </React.StrictMode>,
+                                artefact={artefact}
+                                allCategories={currentThis.props.allCategories}
+                                category={null} />,
                         document.getElementById('infoArtefact')
                     )
                 }
-            } else {//there is no marker
-                console.log("New position:" + evt.coordinate)
+            } else {//there is no artefact
+                console.log("New position:" + olProj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
                 currentThis.setState({ lastClickPosition: evt.coordinate });
             }
         });
@@ -85,7 +86,7 @@ class MainMap extends React.Component {
         if (this.state.lastClickPosition !== null) {
             this.state.viewMap.setZoom(11);
             this.state.viewMap.setCenter(this.state.lastClickPosition);
-            this.props.handleSelectionPointOnTheMap(this.state.lastClickPosition);
+            this.props.handleSelectionPointOnTheMap(olProj.transform(this.state.lastClickPosition, 'EPSG:3857', 'EPSG:4326'));
         } else {
             ReactDOM.render(
                 <React.StrictMode>
@@ -99,6 +100,11 @@ class MainMap extends React.Component {
         }
     }
 
+    //by selection point in left Aside (id = FindIt)
+    FindPlaceByCoordinate = (e) => (
+        this.setState({ lastClickPosition: olProj.transform(e, 'EPSG:4326', 'EPSG:3857') })
+    )
+
     render() {
         const styleMap = {
             width: '90%',
@@ -109,9 +115,30 @@ class MainMap extends React.Component {
             marginRight: 'auto'
         }
 
-        //have to do this here because of filter's change
+        //have to do this here because of filter's change and also we need to add one marker = lastClickPosition
+        let geomarkers = this.props.geoMarkers;
+        if (this.state.lastClickPosition !== null) {//add last position to geomarkers
+            let selectedPoint = GeomarkersService.setFeatureForSelectedPoint(olProj.transform(this.state.lastClickPosition, 'EPSG:3857', 'EPSG:4326'));
+            if (selectedPoint !== null) {
+                if (geomarkers === null) {
+                    geomarkers = [selectedPoint];
+                } else {
+                    //at first remove old lastClickPosition
+                    const oldSelectedPoint = geomarkers.find(x => (x.get("id") === "_selectedPoint"));
+                    if ((oldSelectedPoint !== null) && (oldSelectedPoint !== undefined)) {
+                        const indexOld = geomarkers.indexOf(oldSelectedPoint);
+                        if (indexOld >= 0) {
+                            geomarkers.splice(indexOld, 1);
+                        }
+                    }
+                    //and then add new
+                    geomarkers.push(selectedPoint);
+                }
+            }
+        }
+
         this.state.vectorLayer.setSource(new VectorSource({
-            features: this.props.geoMarkers
+            features: geomarkers
         }));
 
         const t = this.props.t;

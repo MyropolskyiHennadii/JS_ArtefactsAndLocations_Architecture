@@ -2,6 +2,7 @@ import i18n from "i18next";
 
 //path to cross origin (Java API)
 const pathToCrossOrigin = 'http://localhost:8080/apiArtefacts/';
+//const pathToCrossOrigin = 'http://94.130.181.51:8097/apiArtefacts/';
 //languages:
 const languages = ['en', 'de', 'es', 'fr', 'it', 'ru', 'uk'];
 const languagesNames = ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Русский', 'Українська'];

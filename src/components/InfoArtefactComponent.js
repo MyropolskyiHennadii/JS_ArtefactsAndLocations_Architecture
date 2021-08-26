@@ -13,6 +13,7 @@ export default function InfoArtefact(props) {
     const featureStyle = { marginLeft: '0em', backgroundColor: '#EEE8AA' };
     if (props.feature !== null) {
         const feature = GeomarkersService.fillFeatureWithProperties(props.feature, props.artefact, i18n.language, props.allCategories);
+
         return (
             <Fragment>
                 <div style={featureStyle}>
@@ -36,7 +37,7 @@ export default function InfoArtefact(props) {
                         <a href={feature.get('wiki')} target="_blank"><b>{t("ArtefactsWiki")} {feature.get('name')}</b></a>
                     </div>
                 </div>
-                <AsidePhotoComponent feature={feature} linksToPhotos = {props.linksToPhotos}></AsidePhotoComponent> 
+                <AsidePhotoComponent feature={feature}></AsidePhotoComponent>
             </Fragment>
 
         )

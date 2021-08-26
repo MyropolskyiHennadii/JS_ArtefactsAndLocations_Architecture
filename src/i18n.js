@@ -49,7 +49,11 @@ i18n
                     ArtefactsWiki: "Wiki-страница артефакта: ",
                     PointIsntDefined: "Не определена стартовая точка. Повторите клик по карте.",
                     ArtefactsCategory: "Категории: ",
-                    CategoriesWikiPage: "Wiki-страница категории: "
+                    CategoriesWikiPage: "Wiki-страница категории: ",
+                    FindPlace: "Найти место по координатам или по наименованию: ",
+                    Longitude: "Долгота: ",
+                    Latitude: "Широта: ",
+                    FindByCoordinates: "Найти по координатам" 
                 }
             },
 
@@ -74,7 +78,11 @@ i18n
                     ArtefactsWiki: "Wiki-сторінка артефакту: ",
                     PointIsntDefined: "Не визначена стартова точка. Повторіть клік по мапі.",
                     ArtefactsCategory: "Категорії: ",
-                    CategoriesWikiPage: "Wiki-сторінка категорії: " 
+                    CategoriesWikiPage: "Wiki-сторінка категорії: ",
+                    FindPlace: "Знайти місце по координатам або по назві: ",
+                    Longitude: "Довгота: ",
+                    Latitude: "Широта: ",
+                    FindByCoordinates: "Знайти по координатам"    
                 }
             },
 
@@ -98,7 +106,11 @@ i18n
                     ArtefactsWiki: "Wiki-Seite des Artefakt: ", 
                     PointIsntDefined: "Start Punkt ist nicht festgestellt. Wiederholen Sie Klick auf die Karte.", 
                     ArtefactsCategory: "Kategorien: ",
-                    CategoriesWikiPage: "Wiki-Seite der Kategorie: "
+                    CategoriesWikiPage: "Wiki-Seite der Kategorie: ",
+                    FindPlace: "Ort nach Koordinaten oder nach Namen finden: ",
+                    Longitude: "Länge: ",
+                    Latitude: "Breite: ",
+                    FindByCoordinates: "Nach Koordinaten suchen"   
                 }
             },
 
@@ -121,7 +133,11 @@ i18n
                     ArtefactsWiki: "Artefact's wiki-page: ",
                     PointIsntDefined: "Start point isn't defined. Repeat click at the map.",
                     ArtefactsCategory: "Categories: ",
-                    CategoriesWikiPage: "Category's wiki-page: "                 
+                    CategoriesWikiPage: "Category's wiki-page: ",
+                    FindPlace: "Find place by coordinates or by name: ",               
+                    Longitude: "Longitude: ",
+                    Latitude: "Latitude: ",
+                    FindByCoordinates: "Find by coordinates"  
                 }
             },
 
@@ -144,7 +160,11 @@ i18n
                     ArtefactsWiki: "La page wiki d'Artefact: ",
                     PointIsntDefined: "Le point de départ n'est pas défini. Répétez le clic sur la carte.",
                     ArtefactsCategory: "Catégories: ",
-                    CategoriesWikiPage: "La page wiki de la catégorie: "                 
+                    CategoriesWikiPage: "La page wiki de la catégorie: ",
+                    FindPlace: "Trouver un lieu par coordonnées ou par nom: ",
+                    Longitude: "Longitude: ",
+                    Latitude: "Latitude: ",
+                    FindByCoordinates: "Rechercher par coordonnées"                     
                 }
             },
 
@@ -167,7 +187,11 @@ i18n
                     ArtefactsWiki: "Pagina wiki di Artefact: ",
                     PointIsntDefined: "Il punto di inizio non è definito. Ripetere il clic sulla mappa.",
                     ArtefactsCategory: "Categorie: ",
-                    CategoriesWikiPage: "Pagina wiki della categoria: "                   
+                    CategoriesWikiPage: "Pagina wiki della categoria: ",
+                    FindPlace: "Trova luogo per coordinate o per nome: ",
+                    Longitude: "Longitudine: ",
+                    Latitude: "Latitudine: ",
+                    FindByCoordinates: "Trova per coordinate"                     
                 }
             },
 
@@ -190,7 +214,11 @@ i18n
                     ArtefactsWiki: "Página wiki de Artefact: ",
                     PointIsntDefined: "El punto de inicio no está definido. Repita el clic en el mapa.",
                     ArtefactsCategory: "Categorías: ",
-                    CategoriesWikiPage: "Página wiki de la categoría: "                
+                    CategoriesWikiPage: "Página wiki de la categoría: ",
+                    FindPlace: "Encontrar lugar por coordenadas o por nombre: ",
+                    Longitude: "Longitud: ",
+                    Latitude: "Latitud: ",
+                    FindByCoordinates: "Encontrar por coordenadas"                  
                 }
             }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -9,28 +9,23 @@ import SelectLanguageComponent from './SelectLanguageComponent';
 
 function renderHeaderLanguageFilter() {
     ReactDOM.render(
-        <React.StrictMode>
-            <SelectLanguageComponent />
-        </React.StrictMode>,
+            <SelectLanguageComponent />,
         document.getElementById('select_language'));
     ReactDOM.render(
-        <React.StrictMode>
-            <HeaderDescription />
-        </React.StrictMode>,
+            <HeaderDescription />,
         document.getElementById('header_description'));
 }
 
 
 export default function MainPaneComponent(props) {
     React.useEffect(() => { renderHeaderLanguageFilter() });
-
     const [t, i18n] = useTranslation();
     return (
-        <div>
+        <Fragment>
             <MapWrapper
             t = {t}
             />       
-        </div>
+        </Fragment>
     )
 }
 

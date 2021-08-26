@@ -10,20 +10,6 @@ class RemoteDataService {
         return response;
     }
 
-    //link to artefact's image (in the case, if there isn't data about photoes in getLocationsCategoriesArtefacts)
-    async getLinkToArtefactsImage(feature) {
-        if((feature === null) || (feature === undefined)){
-            return null;
-        }
-        const wikipage = feature.get("wiki");
-        if((wikipage === null) || (wikipage === undefined)  || (wikipage === "")){
-            return null;
-        }    
-            
-        const data_URL = CommonConstants.getPathToCrossOrigin() + 'get_image_url_from_wiki';
-        const response = await axios.post(data_URL, { params: { wikipage: wikipage } });
-        return response; 
-    }
 }
 
 export default new RemoteDataService();
