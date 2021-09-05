@@ -138,7 +138,7 @@ class GeomarkersService {
         let strCategories = "";
         for (let index = 0; index < artefact.categories.length; index++) {
             const idCategory = artefact.categories[index].id_category_artefact;
-            const mainCategory = allCategories.find(x => (x.id_category == idCategory));//in different languages
+            const mainCategory = allCategories.find(x => (Number(x.id_category) === Number(idCategory)));//in different languages
             if (mainCategory !== undefined) {
                 const nameAndWebReference = SynonymsAndLanguages.getCategoryName(lang, mainCategory);
                 strCategories = "" + strCategories + nameAndWebReference.category_name.substring(3) + "; "

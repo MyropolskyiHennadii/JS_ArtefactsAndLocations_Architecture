@@ -2,10 +2,13 @@ import i18n from "i18next";
 
 //path to cross origin (Java API)
 const pathToCrossOrigin = 'http://localhost:8080/apiArtefacts/';
-//const pathToCrossOrigin = 'http://94.130.181.51:8097/apiArtefacts/';
+
 //languages:
 const languages = ['en', 'de', 'es', 'fr', 'it', 'ru', 'uk'];
 const languagesNames = ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Русский', 'Українська'];
+//const arcGisAPI = 'AAPKfbb05f232d794a4fb1d6a678556b4134ZJ3Fo2WeKSnztu8w-F0dM8XLrANcfnaUorqunrQMufMSwdZ4lI-48FjeR0u7qcjF';
+//https://www.geonames.org/export/geonames-search.html
+const userGeode = "myropolskyi";
 
 
 class CommonConstants {
@@ -36,6 +39,14 @@ class CommonConstants {
 
     getLanguagesNames(){
         return languagesNames;
+    }
+
+/*     getArcGisApiKey(){
+        return arcGisAPI;
+    } */
+
+    getUserGeode(){
+        return userGeode;
     }
 }
 

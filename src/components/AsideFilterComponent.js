@@ -77,12 +77,10 @@ export default function AsideFiltersComponent(props) {
             )
         ),
         ReactDOM.render(
-            <React.StrictMode>
                 <InfoArtefact feature={null}
                     category={document.getElementById("selectCategoryID").options[document.getElementById("selectCategoryID").selectedIndex]}
                     allCategories={props.allCategories}
-                />
-            </React.StrictMode>,
+                />,
             document.getElementById('infoArtefact')
         )
     )

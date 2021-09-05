@@ -25,7 +25,10 @@ class MainMap extends React.Component {
             viewMap: this.props.viewMap,
             lastClickPosition: null//position with last click
         }
-        ReactDOM.render(<AsideFindItComponent FindPlaceByCoordinate = {this.FindPlaceByCoordinate}/>, document.getElementById('findIt'));
+         ReactDOM.render(<AsideFindItComponent 
+            FindPlaceByCoordinate = {this.FindPlaceByCoordinate}
+            t = {this.props.t}
+            />, document.getElementById('findIt'));
     }
 
     componentDidMount() {

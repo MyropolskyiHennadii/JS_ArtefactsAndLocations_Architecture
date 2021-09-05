@@ -53,7 +53,9 @@ i18n
                     FindPlace: "Найти место по координатам или по наименованию: ",
                     Longitude: "Долгота: ",
                     Latitude: "Широта: ",
-                    FindByCoordinates: "Найти по координатам" 
+                    FindPlaceByCoordinates: "Найти по координатам", 
+                    FindPlaceByName: "Найти по названию",
+                    searchName: "Название: "
                 }
             },
 
@@ -82,7 +84,9 @@ i18n
                     FindPlace: "Знайти місце по координатам або по назві: ",
                     Longitude: "Довгота: ",
                     Latitude: "Широта: ",
-                    FindByCoordinates: "Знайти по координатам"    
+                    FindPlaceByCoordinates: "Знайти по координатам",
+                    FindPlaceByName: "Знайти за назвою",
+                    searchName: "Назва: "    
                 }
             },
 
@@ -110,7 +114,9 @@ i18n
                     FindPlace: "Ort nach Koordinaten oder nach Namen finden: ",
                     Longitude: "Länge: ",
                     Latitude: "Breite: ",
-                    FindByCoordinates: "Nach Koordinaten suchen"   
+                    FindPlaceByCoordinates: "Nach Koordinaten suchen",
+                    FindPlaceByName: "Nach Namen suchen",
+                    searchName: "Name: " 
                 }
             },
 
@@ -137,7 +143,9 @@ i18n
                     FindPlace: "Find place by coordinates or by name: ",               
                     Longitude: "Longitude: ",
                     Latitude: "Latitude: ",
-                    FindByCoordinates: "Find by coordinates"  
+                    FindPlaceByCoordinates: "Find by coordinates",
+                    FindPlaceByName: "Find by name",
+                    searchName: "Name: "     
                 }
             },
 
@@ -164,7 +172,9 @@ i18n
                     FindPlace: "Trouver un lieu par coordonnées ou par nom: ",
                     Longitude: "Longitude: ",
                     Latitude: "Latitude: ",
-                    FindByCoordinates: "Rechercher par coordonnées"                     
+                    FindPlaceByCoordinates: "Rechercher par coordonnées",
+                    FindPlaceByName: "Rechercher par nom",
+                    searchName: "Nom: "                       
                 }
             },
 
@@ -191,7 +201,9 @@ i18n
                     FindPlace: "Trova luogo per coordinate o per nome: ",
                     Longitude: "Longitudine: ",
                     Latitude: "Latitudine: ",
-                    FindByCoordinates: "Trova per coordinate"                     
+                    FindPlaceByCoordinates: "Trova per coordinate",
+                    FindPlaceByName: "Trova per nome",
+                    searchName: "Nome: "                      
                 }
             },
 
@@ -218,7 +230,9 @@ i18n
                     FindPlace: "Encontrar lugar por coordenadas o por nombre: ",
                     Longitude: "Longitud: ",
                     Latitude: "Latitud: ",
-                    FindByCoordinates: "Encontrar por coordenadas"                  
+                    FindPlaceByCoordinates: "Encontrar por coordenadas",
+                    FindPlaceByName: "Buscar por nombre",
+                    searchName: "Nombre: "                   
                 }
             }
 
