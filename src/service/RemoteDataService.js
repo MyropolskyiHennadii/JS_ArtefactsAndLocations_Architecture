@@ -5,7 +5,7 @@ class RemoteDataService {
 
     //locations, categories, artefacts
     async getLocationsCategoriesArtefacts(mapCenter) {
-        //it is with sprin-boot app:
+        //it is with spring-boot app:
         //const data_URL = CommonConstants.getPathToCrossOrigin() + 'get_artefacts_near_map_center';
         //const response = await axios.post(data_URL, { params: { mapCenter: mapCenter, thema: 'Architecture' } });
 
@@ -15,7 +15,7 @@ class RemoteDataService {
         //GET for point
         //const response = await axios.get(CommonConstants.getPathToCrossOrigin(), { params: {thema: 'Architecture', longitude: mapCenter[0], latitude: mapCenter[1]} });
         //post for point
-        const response = await axios.post(CommonConstants.getPathToCrossOrigin(), { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture', longitude: mapCenter[0], latitude: mapCenter[1]} });
+        const response = await axios.post(CommonConstants.getPathToCrossOrigin(), { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
         //get for creation region data
         //const response = await axios.get('http://localhost:8080/ArtefactsLocation_API_war/createArtefactsForRegionServlet', { params: {thema: 'Architecture', region: 'bayern_germany', version: '1.0.6' } });
         return response;
