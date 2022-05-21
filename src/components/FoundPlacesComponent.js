@@ -31,7 +31,7 @@ export default function FoundPlacesComponent(props) {
                 for (let i = 0; i < data.length; i++) {
                     arrayList.push(
                         <div key={"div" + i} onClick={clickPlace}>
-                            <li style={{ height: '50px', border: '1px solid black' }} id={i} key={i}>{data[i].name + ": " + data[i].countryCode + ". Long: " + data[i].lng + ", Lat: " + data[i].lat}
+                            <li style={{ height: '60px', border: '1px solid black' }} id={i} key={i}>{data[i].name + ": " + data[i].countryCode + ". Long: " + data[i].lng + ", Lat: " + data[i].lat}
                             </li>
                         </div>
                     );

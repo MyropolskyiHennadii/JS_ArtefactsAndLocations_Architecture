@@ -38,15 +38,15 @@ export default function AsideFindItComponent(props) {
     return (
         <Fragment>
             <h2 style={{ marginLeft: 2 + 'em' }}>{t("FindPlaceByCoordinates")}</h2>
-            <p style={{ marginLeft: 2 + 'em' }} >
+            <p style={{ marginLeft: 0 + 'em' }} >
                 <label htmlFor="longitude">{t('Longitude')}</label>
-                <input type="number" id="longitude" name="longitude" min="0.0" max="360" /> . <input type="number" id="longitudeDec" name="longitudeDec"
-                    min="0.0" max="360" />
+                <input type="number" id="longitude" name="longitude" min="0.0" max="50" /> . <input type="number" id="longitudeDec" name="longitudeDec"
+                    min="0.0" max="50" />
             </p>
-            <p style={{ marginLeft: 2 + 'em' }} >
+            <p style={{ marginLeft: 0 + 'em' }} >
                 <label htmlFor="latitude">{t('Latitude')}</label>
-                <input type="number" id="latitude" name="latitude" min="0.0" max="360" /> . <input type="number" id="latitudeDec" name="latitudeDec"
-                    min="0.0" max="360" />
+                <input type="number" id="latitude" name="latitude" min="0.0" max="50" /> . <input type="number" id="latitudeDec" name="latitudeDec"
+                    min="0.0" max="50" />
             </p>
             <p></p>
             <button style={{ marginLeft: 2 + 'em' }} onClick={findPlaceByCoordinates}>{t('FindPlaceByCoordinates')}</button>

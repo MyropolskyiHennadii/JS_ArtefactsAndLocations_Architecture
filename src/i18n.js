@@ -55,7 +55,8 @@ i18n
                     Latitude: "Широта: ",
                     FindPlaceByCoordinates: "Найти по координатам", 
                     FindPlaceByName: "Найти по названию",
-                    searchName: "Название: "
+                    searchName: "Название: " ,
+                    BadAnswerFromServer: "Неверный ответ от сервера"  
                 }
             },
 
@@ -86,7 +87,8 @@ i18n
                     Latitude: "Широта: ",
                     FindPlaceByCoordinates: "Знайти по координатам",
                     FindPlaceByName: "Знайти за назвою",
-                    searchName: "Назва: "    
+                    searchName: "Назва: " ,
+                    BadAnswerFromServer: "Невірна відповідь від серверу"  
                 }
             },
 
@@ -116,7 +118,8 @@ i18n
                     Latitude: "Breite: ",
                     FindPlaceByCoordinates: "Nach Koordinaten suchen",
                     FindPlaceByName: "Nach Namen suchen",
-                    searchName: "Name: " 
+                    searchName: "Name: ",
+                    BadAnswerFromServer: "Die falsche Antwort von Server"  
                 }
             },
 
@@ -145,7 +148,8 @@ i18n
                     Latitude: "Latitude: ",
                     FindPlaceByCoordinates: "Find by coordinates",
                     FindPlaceByName: "Find by name",
-                    searchName: "Name: "     
+                    searchName: "Name: ",
+                    BadAnswerFromServer: "Wrong answer from server"       
                 }
             },
 
@@ -174,7 +178,8 @@ i18n
                     Latitude: "Latitude: ",
                     FindPlaceByCoordinates: "Rechercher par coordonnées",
                     FindPlaceByName: "Rechercher par nom",
-                    searchName: "Nom: "                       
+                    searchName: "Nom: ",
+                    BadAnswerFromServer: "Mauvaise réponse du serveur"                        
                 }
             },
 
@@ -203,7 +208,8 @@ i18n
                     Latitude: "Latitudine: ",
                     FindPlaceByCoordinates: "Trova per coordinate",
                     FindPlaceByName: "Trova per nome",
-                    searchName: "Nome: "                      
+                    searchName: "Nome: ",
+                    BadAnswerFromServer: "Risposta sbagliata dal server"                       
                 }
             },
 
@@ -232,7 +238,8 @@ i18n
                     Latitude: "Latitud: ",
                     FindPlaceByCoordinates: "Encontrar por coordenadas",
                     FindPlaceByName: "Buscar por nombre",
-                    searchName: "Nombre: "                   
+                    searchName: "Nombre: ",
+                    BadAnswerFromServer: "Respuesta incorrecta del servidor",                     
                 }
             }
 

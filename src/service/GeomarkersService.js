@@ -83,7 +83,9 @@ class GeomarkersService {
         const filteredArtefacts = [];//with filter
         for (let i = 0; i < artefacts.length; i++) {
             for (let j = 0; j < artefacts[i].categories.length; j++) {
-                if (Number(category.id_category) === Number(artefacts[i].categories[j].id_category_artefact)) {
+                //I don't want to undestand, why those condition doesn't work with servlet-version
+                /* if (Number(category.id_category) === Number(artefacts[i].categories[j].id_category_artefact)) { */
+                if (Number(category.id_category) === Number(artefacts[i].categories[j].category.id_category)) {
                     filteredArtefacts.push(artefacts[i]);
                 }
             }
