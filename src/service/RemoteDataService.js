@@ -20,16 +20,17 @@ class RemoteDataService {
         //post for point local
         //const response = await axios.post("http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts", { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
         //get !!! for creation region data local
-        //const response = await axios.get('http://localhost:8080/ArtefactsLocation_api_war/createArtefactsForRegionServlet', { params: {thema: 'Architecture', region: 'bayern_germany', version: '' } });
+        const response = await axios.get('http://localhost:8080/ArtefactsLocation_api_war/createArtefactsForRegionServlet', { params: {thema: 'Architecture', region: 'bayern_germany', version: '' } });
 
         //post !!! for gettting region data local
-        const response = await axios.post('http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts', { params: {token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: 'bayern_germany', version: '1.0.9' } });
+        //const response = await axios.post('http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts', { params: {token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: 'bayern_germany', version: '1.0.9' } });
         return response;
     }
 
     //search places by name async
     //https://github.com/jcblw/geode/blob/master/README.md 
     //https://www.geonames.org/export/geonames-search.html     
+    //http://www.geonames.org/data-sources.html
     //http://api.geonames.org/searchJSON?username=myropolsky&country=US&lang=en&name=asdgfsdgSG
 
     async findPlaceByName(searchName, language) {
