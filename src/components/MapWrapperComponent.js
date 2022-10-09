@@ -34,7 +34,6 @@ export default function MainWraper(props) {
     ReactDOM.render(
       <AsideFilterComponent
         message={"Wait"}
-        categories={null}
         allCategories={null}
         artefacts={null}
         refreshGeomarkers={null}
@@ -42,13 +41,13 @@ export default function MainWraper(props) {
       document.getElementById("filters")
     ),
     RemoteDataService.getLocationsCategoriesArtefacts(e).then((response) => {
+      console.log("Response status from server: " + response.status);
       //bad answer
-      if (response.status !== 200) {
-        console.log("response status " + response.status)
+      if (response.status != 200) {
+        console.log("Bad answer from the server.")
         ReactDOM.render(
           <AsideFilterComponent
             message={"BadAnswerFromServer"}
-            categories={null}
             allCategories={null}
             artefacts={null}
             refreshGeomarkers={null}
@@ -57,30 +56,25 @@ export default function MainWraper(props) {
         );
       } else {
         setArtefacts(response.data.artefacts);
-        setAllCategories(response.data.all_categories);
+        setAllCategories(response.data.categories);
         refreshGeomarkers(response.data.artefacts);
-        console.log(
-          "Size of artefacts categories:" +
-            response.data.artefacts_categories.length
-        );
 
-        //AsideFilter with categories from response.data.artefacts_categories
-        if (response.data.artefacts_categories.length > 0) {
+        //AsideFilter with categories from response.data.categories
+        if (response.data.categories.length > 0) {
           ReactDOM.render(
             <AsideFilterComponent
               message={""}
-              categories={response.data.artefacts_categories}
-              allCategories={response.data.all_categories}
+              allCategories={response.data.categories}
               artefacts={response.data.artefacts}
               refreshGeomarkers={refreshGeomarkers}
             />,
             document.getElementById("filters")
           );
         } else {
+          console.log("Impossible to show AsideFilterComponent.")
           ReactDOM.render(
             <AsideFilterComponent
               message={"ThereAreNoArtefacts"}
-              categories={null}
               allCategories={null}
               artefacts={null}
               refreshGeomarkers={null}

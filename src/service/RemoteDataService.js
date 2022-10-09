@@ -19,11 +19,16 @@ class RemoteDataService {
         //const response = await axios.post(CommonConstants.getPathToCrossOrigin(), { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
         //post for point local
         //const response = await axios.post("http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts", { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
-        //get !!! for creation region data local
-        const response = await axios.get('http://localhost:8080/ArtefactsLocation_api_war/createArtefactsForRegionServlet', { params: {thema: 'Architecture', region: 'bayern_germany', version: '' } });
+        
+        //post for getting region data
+        const response = await axios.post(CommonConstants.getPathToCrossOriginPoint(), { params: {token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: 'bayern_germany' } });
 
-        //post !!! for gettting region data local
-        //const response = await axios.post('http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts', { params: {token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: 'bayern_germany', version: '1.0.9' } });
+        //get for creation region data
+        //const response = await axios.get(CommonConstants.getPathToCrossOriginCreateRegion(), { params: {thema: 'Architecture', region: 'bayern_germany', version: '' } });
+
+        //post for gettting point data
+        //const response = await axios.post(CommonConstants.getPathToCrossOriginPoint(), { params: {token: CommonConstants.getMapAccessToken(), thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
+
         return response;
     }
 

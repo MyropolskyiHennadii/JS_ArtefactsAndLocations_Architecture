@@ -76,16 +76,14 @@ class GeomarkersService {
 
     //filter artefacts by category
     formingArtefactsArrayByCategory(artefacts, allCategories, id) {
-        const category = allCategories.find(x => (Number(x.id_category) === Number(id)));
-        if (category === undefined) {//all artefacts
+        console.log("ID selected category:" + id);
+        if (id.startsWith("000--")) {//all artefacts
             return artefacts;
         }
         const filteredArtefacts = [];//with filter
         for (let i = 0; i < artefacts.length; i++) {
             for (let j = 0; j < artefacts[i].categories.length; j++) {
-                //I don't want to undestand, why those condition doesn't work with servlet-version
-                /* if (Number(category.id_category) === Number(artefacts[i].categories[j].id_category_artefact)) { */
-                if (Number(category.id_category) === Number(artefacts[i].categories[j].category.id_category)) {
+                if (Number(id) === Number(artefacts[i].categories[j])) {
                     filteredArtefacts.push(artefacts[i]);
                 }
             }
@@ -105,7 +103,6 @@ class GeomarkersService {
             const events = new Set();
             for (let index = 0; index < artefact.events.length; index++) {
                 events.add(artefact.events[index].event.trim() + " " + artefact.events[index].event_begin.trim() + " - " + artefact.events[index].event_end.trim() + "; ")
-                //events = "" + events + artefact.events[index].event + " " + artefact.events[index].event_begin + " - " + artefact.events[index].event_end + "; ";
             }
             //and at least
             let strEvents = "";
@@ -138,9 +135,8 @@ class GeomarkersService {
         }
         //categories:
         let strCategories = "";
-        console.log(artefact.artefacts_name + "; categories: " + artefact.categories.length);
         for (let index = 0; index < artefact.categories.length; index++) {
-            const idCategory = artefact.categories[index].category.id_category;
+            const idCategory = artefact.categories[index];
             const mainCategory = allCategories.find(x => (Number(x.id_category) === Number(idCategory)));//in different languages
             if (mainCategory !== undefined) {
                 const nameAndWebReference = SynonymsAndLanguages.getCategoryName(lang, mainCategory);

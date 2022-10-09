@@ -1,10 +1,11 @@
 import i18n from "i18next";
 
 //path to cross origin (Java API)
-//const pathToCrossOrigin = 'http://localhost:8080/apiArtefacts/';
-//const pathToCrossOrigin = 'http://localhost:8080/ArtefactsLocation_API_war/supplyArtefacts';
+const pathToCrossOriginPoint = 'http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts';
 //const pathToCrossOrigin = 'http://94.130.181.51:8097/apiArtefacts/';
-const pathToCrossOrigin = 'http://94.130.181.51:8080/ArtefactsLocation-api/supplyArtefacts';
+
+const pathToCrossOriginCreateRegion = 'http://localhost:8080/ArtefactsLocation_api_war/createArtefactsForRegionServlet';
+
 //languages:
 const languages = ['en', 'de', 'es', 'fr', 'it', 'ru', 'uk'];
 const languagesNames = ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Русский', 'Українська'];
@@ -16,8 +17,12 @@ const AccessTokenMapboxGL = "pk.eyJ1IjoibXlyb3BvbHNreWkiLCJhIjoiY2t1dHVibDZvMmZl
 
 class CommonConstants {
 
-    getPathToCrossOrigin(params) {
-        return pathToCrossOrigin;
+    getPathToCrossOriginPoint(params) {
+        return pathToCrossOriginPoint;
+    }
+
+    getPathToCrossOriginCreateRegion(params) {
+        return pathToCrossOriginCreateRegion;
     }
 
     buildLanguageOptions() {

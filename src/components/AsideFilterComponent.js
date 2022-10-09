@@ -30,31 +30,28 @@ const Category = class {
     }
 }
 
-function prepareOptionsArtefactsCategories(categories, allCategories, t) {
+function prepareOptionsArtefactsCategories(allCategories, t) {
     let optionsCategories = [];//select categories
     optionsCategories.push(new Category(t("SelectAllCategories"),
         null,
-        t("SelectAllCategories")
+        t("SelectAllCategories"),
+        0
     ));
-    for (let i = 0; i < categories.length; i++) {
-        const mainCategory = allCategories
-            .find(x => (x.id_category === categories[i]));
-        if (mainCategory !== undefined) {
-            const nameAndWebReference = SynonymsAndLanguages.getCategoryName(i18n.language, mainCategory);
-            optionsCategories.push(new Category(
-                nameAndWebReference.category_name,
-                nameAndWebReference.web_reference,
-                categories[i]
-            ));
-        }
+
+    for (let i = 0; i < allCategories.length; i++) {
+        const mainCategory = allCategories[i];
+        const nameAndWebReference = SynonymsAndLanguages.getCategoryName(i18n.language, mainCategory);
+        optionsCategories.push(new Category(
+            nameAndWebReference.category_name,
+            nameAndWebReference.web_reference,
+            mainCategory.id_category
+        ));
     }
     //sort by value and throw the begignning 00...
     optionsCategories.sort(compare);
     for (let i = 0; i < optionsCategories.length; i++) {
         optionsCategories[i].value = optionsCategories[i].value.substring(3);
     }
-
-    //and at least result
     const options = [];
     for (let i = 0; i < optionsCategories.length; i++) {
         options.push(<option value={optionsCategories[i].key} id={optionsCategories[i].web_reference} key={optionsCategories[i].key}>{optionsCategories[i].value}</option>);
@@ -77,16 +74,17 @@ export default function AsideFiltersComponent(props) {
             )
         ),
         ReactDOM.render(
-                <InfoArtefact feature={null}
-                    category={document.getElementById("selectCategoryID").options[document.getElementById("selectCategoryID").selectedIndex]}
-                    allCategories={props.allCategories}
-                />,
+            <InfoArtefact feature={null}
+                category={document.getElementById("selectCategoryID").options[document.getElementById("selectCategoryID").selectedIndex]}
+                allCategories={props.allCategories}
+            />,
             document.getElementById('infoArtefact')
         )
     )
 
-    if ((props.categories !== null) && (props.categories !== undefined)) {
-        let optionsCategories = prepareOptionsArtefactsCategories(props.categories, props.allCategories, t)
+    //if ((props.categories !== null) && (props.categories !== undefined)) {
+    if (props.allCategories !== null) {
+        let optionsCategories = prepareOptionsArtefactsCategories(props.allCategories, t)
         return (
             <div>
                 <h2 style={{ marginLeft: 2 + 'em' }}>{t("Filters")}</h2>
