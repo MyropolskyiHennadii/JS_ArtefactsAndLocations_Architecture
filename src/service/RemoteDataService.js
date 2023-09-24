@@ -5,23 +5,11 @@ class RemoteDataService {
 
     //locations, categories, artefacts
     async getLocationsCategoriesArtefacts(mapCenter) {
-        //it is with spring-boot app:
-        //const data_URL = CommonConstants.getPathToCrossOrigin() + 'get_artefacts_near_map_center';
-        //const response = await axios.post(data_URL, { params: { mapCenter: mapCenter, thema: 'Architecture' } });
 
-        //it is with servlet-application
-        //POST for region
-        //const response = await axios.post(CommonConstants.getPathToCrossOrigin(), { params: {thema: 'Architecture', region: 'bayern_germany' } });
-        //GET for point
-        //const response = await axios.get(CommonConstants.getPathToCrossOrigin(), { params: {thema: 'Architecture', longitude: mapCenter[0], latitude: mapCenter[1]} });
-
-        //post for point remote
-        //const response = await axios.post(CommonConstants.getPathToCrossOrigin(), { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
-        //post for point local
-        //const response = await axios.post("http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts", { params: {token: CommonConstants.getMapAccessToken(),thema: 'Architecture',  region: '', longitude: mapCenter[0], latitude: mapCenter[1]} });
-        
-        //post for getting region data
-        const response = await axios.post(CommonConstants.getPathToCrossOriginPoint(), { params: {token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: 'bayern_germany' } });
+        //post for getting region data:
+        //const response = await axios.post(CommonConstants.getPathToCrossOriginPoint(), { token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: 'bayern_germany', version: '1.2.0' } );
+        //post for getting artefacts near the point:
+        const response = await axios.post(CommonConstants.getPathToCrossOriginPoint(), { token: CommonConstants.getMapAccessToken(), thema: 'Architecture', region: '', version: '1.2.0', longitude: mapCenter[0], latitude: mapCenter[1], precision: 0.1 } );
 
         //get for creation region data
         //const response = await axios.get(CommonConstants.getPathToCrossOriginCreateRegion(), { params: {thema: 'Architecture', region: 'bayern_germany', version: '' } });
