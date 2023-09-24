@@ -2,7 +2,7 @@ import i18n from "i18next";
 
 //path to cross origin (Java API)
 //const pathToCrossOriginPoint = 'http://localhost:8080/ArtefactsLocation_api_war/supplyArtefacts';
-const pathToCrossOrigin = 'http://94.130.181.51:8097/ArtefactsLocation-api/supplyArtefacts';
+const pathToCrossOriginPoint = 'http://94.130.181.51:8097/ArtefactsLocation-api/supplyArtefacts';
 
 //const pathToCrossOriginCreateRegion = 'http://localhost:8080/ArtefactsLocation_api_war/createArtefactsForRegionServlet';
 const pathToCrossOriginCreateRegion = 'http://94.130.181.51:8097/ArtefactsLocation-api/createArtefactsForRegionServlet';
