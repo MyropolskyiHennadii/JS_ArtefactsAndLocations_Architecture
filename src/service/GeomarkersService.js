@@ -51,8 +51,8 @@ class GeomarkersService {
                 {
                     type: 'geoMarker',
                     geometry: new Point(fromLonLat([artefacts[index].artefactsLocation.longitude, artefacts[index].artefactsLocation.latitude])),
-                    id: index + "_" + artefacts[index].artefactsLocation.id_artefacts_locations,
-                    id_artefact: artefacts[index].id_artefacts,//id of artefact
+                    id: index + "_" + artefacts[index].artefactsLocation.id,
+                    id_artefact: artefacts[index].id,//id of artefact
                     longitude: artefacts[index].artefactsLocation.longitude,
                     latitude: artefacts[index].artefactsLocation.latitude,
                     pathToImage: pathToArtefactsImage,
@@ -137,7 +137,7 @@ class GeomarkersService {
         let strCategories = "";
         for (let index = 0; index < artefact.categories.length; index++) {
             const idCategory = artefact.categories[index];
-            const mainCategory = allCategories.find(x => (Number(x.id_category) === Number(idCategory)));//in different languages
+            const mainCategory = allCategories.find(x => (Number(x.id) === Number(idCategory)));//in different languages
             if (mainCategory !== undefined) {
                 const nameAndWebReference = SynonymsAndLanguages.getCategoryName(lang, mainCategory);
                 strCategories = "" + strCategories + nameAndWebReference.category_name.substring(3) + "; "

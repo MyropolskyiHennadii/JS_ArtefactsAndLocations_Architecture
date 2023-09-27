@@ -44,7 +44,7 @@ function prepareOptionsArtefactsCategories(allCategories, t) {
         optionsCategories.push(new Category(
             nameAndWebReference.category_name,
             nameAndWebReference.web_reference,
-            mainCategory.id_category
+            mainCategory.id
         ));
     }
     //sort by value and throw the begignning 00...

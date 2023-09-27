@@ -57,7 +57,7 @@ class MainMap extends React.Component {
                 return feature;
             });
             if (feature) {//there is marker
-                const artefact = currentThis.props.artefacts.find(x => (x.id_artefacts === feature.get("id_artefact")));
+                const artefact = currentThis.props.artefacts.find(x => (x.id === feature.get("id_artefact")));
                 if (artefact !== undefined) {
                     ReactDOM.render(
                             <InfoArtefact feature={feature}

@@ -49,7 +49,7 @@ export default function InfoArtefact(props) {
             )
         } else {
             const mainCategory = props.allCategories
-                .find(x => (Number(x.id_category) === Number(category.value)));//in different languages
+                .find(x => (Number(x.id) === Number(category.value)));//in different languages
             if (mainCategory !== undefined) {
                 const nameAndWebReference = SynonymsAndLanguages.getCategoryName(i18n.language, mainCategory);
                 return (
