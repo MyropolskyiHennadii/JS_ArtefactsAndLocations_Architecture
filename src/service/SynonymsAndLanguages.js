@@ -21,6 +21,8 @@ class SynonymsAndLanguages {
         name = name.replace("Wikipedia", "");//it
         name = name.replace("Вікіпедія", "");//uk
         name = name.replace("Википедия", "");//ru
+
+        name = name.replace(" — ", "");
         name = name.replace(" — ", "");
         name = name.replace(" - ", "");
         name = name.replace(" – ", "");
@@ -69,9 +71,9 @@ class SynonymsAndLanguages {
             return new nameAndWebReference("000" + categoryName, mainCategory.web_reference_wiki);
         }
         let enName = "";
-        let firstName = "";
+        let firstName = categoryName;//that's default
         let enWiki = "";
-        let firstWiki = "";
+        let firstWiki = mainCategory.web_reference_wiki;//that's default
         for (let index = 0; index < mainCategory.synonyms.length; index++) {
             if (mainCategory.synonyms[index].lang === lang) {
                 return new nameAndWebReference("000" + this.getRightNameOfCategory(mainCategory.synonyms[index].lang_name), mainCategory.synonyms[index].web_reference_wiki);
@@ -88,8 +90,8 @@ class SynonymsAndLanguages {
         if (enName !== "") {
             return new nameAndWebReference(enName, enWiki);
         }
-        //al least
-        return new nameAndWebReference(firstName, firstWiki);
+        //al least (this "004"+ is just for sorting)
+        return new nameAndWebReference("004" + firstName, firstWiki);
     }
 
     //"translate" name of artefact ant get web-wiki at using language
